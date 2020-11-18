@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Form Validator</title>
+    <!-- Riferimento ad un foglio di stile -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Inserimento dello script all'interno del codice HTML -->
+    <script type="text/javascript">
+      //Funzione che effettua un controllo su ciascun campo del form
+      function validateForm() {
+        /*All'interno di questa variabile viene immagazzinato il valore del
+        nome inserito dall'utente*/
+        var nome = document.datiUtente.nome.value;
+        /*All'interno di questa variabile viene immagazzinato il valore del
+        cognome inserito dall'utente*/
+        var cognome = document.datiUtente.cognome.value;
+        /*All'interno di questa variabile viene immagazzinato il valore del
+        numero di matricola inserito dall'utente*/
+        var matricola = document.datiUtente.matricola.value;
+        /*All'interno di questa variabile viene immagazzinato il valore della
+        data di nascita inserita dall'utente*/
+        var dataDiNascita = document.datiUtente.dataDiNascita.value;
+        /*All'interno di questa variabile viene immagazzinato il valore del
+        luogo di nascita inserito dall'utente*/
+        var luogoDiNascita = document.datiUtente.luogoDiNascita.value;
+        /*All'interno di questa variabile viene immagazzinato il valore dell'
+        indirizzo email inserito dall'utente*/
+        var email = document.datiUtente.email.value;
+
+        /* Vengono effettuati i controlli su ciascun campo. Se quest'ultimo
+        risulterà essere vuoto, apparirà un messaggio nel browser che
+        servirà ad avvertire l'utente del mancato inserimento.
+        La funzione ritornerà un valore true||false che può essere utile ad
+        assicurarsi che i campi compilati correttamente non vengano inviati
+        alla pagina PHP*/
+        if(nome == "") {
+          alert("Il campo Nome non può essere vuoto!");
+          return false;
+        }else if (cognome == "") {
+          alert("Il campo Cognome non può essere vuoto!")
+          return false;
+        }else if (matricola == "") {
+          alert("Il campo Matricola non può essere vuoto!")
+          return false;
+        }else if (dataDiNascita == "") {
+          alert("Il campo Data di nascita non può essere vuoto!")
+          return false;
+        }else if (luogoDiNascita == "") {
+          alert("Il campo Luogo di nascita non può essere vuoto!")
+          return false;
+        }else if (email == "") {
+          alert("Il campo Email non può essere vuoto!")
+          return false;
+        }
+        return true;
+      }
+    </script> <!-- Fine codice JavaScript -->
+  </head> <!-- Fine sezione head -->
+
+  <!-- Ini<io body, parte visibile del documento HTML -->
+  <body>
+    <!-- Titolo, messaggio di richiesta inserimento, e form, sono contenuti
+    all'interno di un contenitore -->
+    <div class="container">
+      <!-- Titolo -->
+      <h1 id="title">Form</h1>
+      <!-- Istruzioni per l'utente -->
+      <p>Per favore, inserisca i propri dati nei seguenti campi</p>
+      <!-- Inizio del form. L'id serve per puntare il form con il codice
+      CSS. L'attributo name serve al codice JavaScript per avere un
+      riferimento che punta al form -->
+      <form name="datiUtente">
+        <!-- Ad ogni tag label(che specifica cosa dovrà essere inserito), segue
+        un tag input(è qui dentro che l'informazione verrà immagazzinata) -->
+        <label for="nome">Nome:</label><br>
+        <input type="text" name="nome"><br><br>
+
+        <label for="cognome">Cognome</label><br>
+        <input type="text" name="cognome"><br><br>
+
+        <label for="matricola">Matricola:</label><br>
+        <input type="text" name="matricola"><br><br>
+
+        <label for="dataDiNascita">Data di nascita:</label><br>
+        <!-- A differenza degli altri, questo tag input ha un attributo type
+        che ha un valore "date". Questo perchè l'informazione inserità dovrà
+        essere una data nel formato gg/mm/aaaa -->
+        <input type="date" name="dataDiNascita"><br><br>
+
+        <label for="luogoDiNascita">Luogo di nascita:</label><br>
+        <!-- Il tag select qui indica una scelta tra più opzioni. In questo caso
+        le opzioni disponibili sono le 20 regioni italiane. -->
+        <select name="luogoDiNascita">
+          <option value=""></option>
+          <option value="1">Abruzzo</option>
+          <option value="2">Basilicata</option>
+          <option value="3">Calabria</option>
+          <option value="4">Campania</option>
+          <option value="5">Emilia-Romagna</option>
+          <option value="6">Friuli-Venezia Giulia</option>
+          <option value="7">Lazio</option>
+          <option value="8">Liguria</option>
+          <option value="9">Lombardia</option>
+          <option value="10">Marche</option>
+          <option value="11">Molise</option>
+          <option value="12">Piemonte</option>
+          <option value="13">Puglia</option>
+          <option value="14">Sardegna</option>
+          <option value="15">Sicilia</option>
+          <option value="16">Toscana</option>
+          <option value="17">Trentino-Alto Adige</option>
+          <option value="18">Umbria</option>
+          <option value="19">Valle d'Aosta</option>
+          <option value="20">Veneto</option>
+        </select><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" name="email"><br><br>
+        <!-- Cliccando sul bottone di submit, le informazioni verranno inviate
+        alla pagina PHP che si occuperà della loro gestione. -->
+        <input type="submit" value="Invio" onclick="validateForm()">
+        <!-- Il tasto annulla fa sì che le informazioni già inserite vengano
+        cancellate. -->
+        <input type="reset" value="Annulla">
+      </form> <!-- Fine form -->
+    </div> <!-- Chiusura contenitore -->
+
+  </body> <!-- Fine body -->
+
+  </html>

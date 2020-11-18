@@ -1,0 +1,24 @@
+/* Personalizzazione form */
+form {
+  border: 1px black solid;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+/* Personalizzazione container */
+.container {
+  width: 300px;
+  margin: auto;
+  box-sizing: border-box;
+}
+/* Personalizzazione titolo */
+#title {
+  text-align: center;
+  margin-bottom: 0;
+}
+/* Personalizzazione messaggio per l'utente */
+p {
+  text-align: center;
+  margin-top: 5px;
+}
